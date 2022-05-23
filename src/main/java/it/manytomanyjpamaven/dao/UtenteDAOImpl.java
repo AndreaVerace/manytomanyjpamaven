@@ -90,7 +90,7 @@ public class UtenteDAOImpl implements UtenteDAO {
 
 	@Override
 	public List<Utente> cercaSeAlmenoUnAdminDisabilitato() throws Exception {
-		TypedQuery<Utente> query = entityManager.createQuery("select u from Utente join u.ruoli r where r.codice like 'ROLE_ADMIN' and u.stato = 'DISABILITATO'", Utente.class);
+		TypedQuery<Utente> query = entityManager.createQuery("select u from Utente u join u.ruoli r where r.codice like 'ROLE_ADMIN' and u.stato = 'DISABILITATO'", Utente.class);
 		return query.getResultList();
 		
 	}
