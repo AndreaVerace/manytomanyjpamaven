@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import it.manytomanyjpamaven.model.Ruolo;
+import it.manytomanyjpamaven.model.StatoUtente;
 import it.manytomanyjpamaven.model.Utente;
 
 public class UtenteDAOImpl implements UtenteDAO {
@@ -70,14 +71,15 @@ public class UtenteDAOImpl implements UtenteDAO {
 
 	@Override
 	public List<Utente> cercaUtentiCreatiAGiugno() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("select u from Utente u where u.dateCreated between '2021-06-01' and '2021-06-31'",Utente.class).getResultList();
+		
+		
 	}
 
 	@Override
 	public int countQuantiUtentiSonoAdmin() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		TypedQuery<Utente> query =  entityManager.createQuery("select distinct u from Utente u join u.ruoli r where r.descrizione like 'Administrator'", Utente.class);
+		return query.getResultList().size();
 	}
 
 	@Override

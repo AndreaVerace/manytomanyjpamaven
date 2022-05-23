@@ -9,6 +9,7 @@ import it.manytomanyjpamaven.dao.RuoloDAO;
 import it.manytomanyjpamaven.dao.UtenteDAO;
 import it.manytomanyjpamaven.exception.UtenteConRuoliAssociatiException;
 import it.manytomanyjpamaven.model.Ruolo;
+import it.manytomanyjpamaven.model.StatoUtente;
 import it.manytomanyjpamaven.model.Utente;
 
 public class UtenteServiceImpl implements UtenteService {

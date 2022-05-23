@@ -5,6 +5,7 @@ import java.util.List;
 import it.manytomanyjpamaven.dao.RuoloDAO;
 import it.manytomanyjpamaven.dao.UtenteDAO;
 import it.manytomanyjpamaven.model.Ruolo;
+import it.manytomanyjpamaven.model.StatoUtente;
 import it.manytomanyjpamaven.model.Utente;
 
 public interface UtenteService {

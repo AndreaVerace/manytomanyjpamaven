@@ -1,5 +1,6 @@
 package it.manytomanyjpamaven.test;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,10 +25,10 @@ public class ManyToManyTest {
 			// initRuoli(ruoloServiceInstance);
 			/*
 			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
-
-			testInserisciNuovoUtente(utenteServiceInstance);
-			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
-			
+			*/
+			// testInserisciNuovoUtente(utenteServiceInstance);
+			// System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
+			/*
 			testCollegaUtenteARuoloEsistente(ruoloServiceInstance, utenteServiceInstance);
 			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
 			*/  /*
@@ -44,7 +45,11 @@ public class ManyToManyTest {
 			
 			// testDeleteRuolo(ruoloServiceInstance);
 			
-			testDeleteUtente(utenteServiceInstance);
+			// testDeleteUtente(utenteServiceInstance);
+			
+			//testCercaUtentiCreatiAGiugno(utenteServiceInstance);
+			
+			//testCountQuantiUtentiSonoAdmin(utenteServiceInstance);
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -69,7 +74,9 @@ public class ManyToManyTest {
 	private static void testInserisciNuovoUtente(UtenteService utenteServiceInstance) throws Exception {
 		System.out.println(".......testInserisciNuovoUtente inizio.............");
 
-		Utente utenteNuovo = new Utente("pippo.rossi", "xxx", "pippo", "rossi", new Date());
+		Date dataCreazione = new SimpleDateFormat("dd-MM-yyyy").parse("03-06-2021");
+		
+		Utente utenteNuovo = new Utente("gio.pesci", "giooooo", "giovanni", "pesci", dataCreazione);
 		utenteServiceInstance.inserisciNuovo(utenteNuovo);
 		if (utenteNuovo.getId() == null)
 			throw new RuntimeException("testInserisciNuovoUtente fallito ");
@@ -195,8 +202,26 @@ public class ManyToManyTest {
 		
 		utenteServiceInstance.rimuovi(idDaEliminare);
 		
-		System.out.println(utenteServiceInstance.listAll().size());
-		
+		System.out.println(utenteServiceInstance.listAll().size());	
 	}
 	
+	
+	private static void testCercaUtentiCreatiAGiugno(UtenteService utenteServiceInstance) throws Exception{
+		if(utenteServiceInstance.listAll().isEmpty())
+			throw new Exception("Lista utenti vuota");
+		
+		System.out.println(utenteServiceInstance.cercaUtentiCreatiAGiugno());
+		
+		
+			
+	}
+	
+	private static void testCountQuantiUtentiSonoAdmin(UtenteService utenteServiceInstance) throws Exception{
+		if(utenteServiceInstance.listAll().isEmpty())
+			throw new Exception("Lista utenti vuota");
+		
+		System.out.println(utenteServiceInstance.countQuantiUtentiSonoAdmin());
+		
+		
+	}
 }
