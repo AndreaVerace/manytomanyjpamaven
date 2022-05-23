@@ -64,4 +64,10 @@ public class RuoloDAOImpl implements RuoloDAO {
 		return query.getResultStream().findFirst().orElse(null);
 	}
 
+	@Override
+	public List<String> cercaDescrizioneQuantiRuoliConUtentiAssociati() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

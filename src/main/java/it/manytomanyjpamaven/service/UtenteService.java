@@ -28,5 +28,13 @@ public interface UtenteService {
 	// per injection
 	public void setUtenteDAO(UtenteDAO utenteDAO);
 	public void setRuoloDAO(RuoloDAO ruoloDAO);
+	
+	public List<Utente> cercaUtentiCreatiAGiugno() throws Exception;
+	
+	public int countQuantiUtentiSonoAdmin() throws Exception;
+	
+	public List<Utente> cercaUtentiConPwdMinoreDiOttoCaratteri() throws Exception;
+	
+	public boolean cercaSeAlmenoUnAdminDisabilitato() throws Exception;
 
 }

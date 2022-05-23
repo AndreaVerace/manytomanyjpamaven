@@ -68,4 +68,28 @@ public class UtenteDAOImpl implements UtenteDAO {
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
+	@Override
+	public List<Utente> cercaUtentiCreatiAGiugno() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int countQuantiUtentiSonoAdmin() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Utente> cercaUtentiConPwdMinoreDiOttoCaratteri() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean cercaSeAlmenoUnAdminDisabilitato() throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
