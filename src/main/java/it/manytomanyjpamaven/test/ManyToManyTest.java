@@ -51,6 +51,8 @@ public class ManyToManyTest {
 			
 			//testCountQuantiUtentiSonoAdmin(utenteServiceInstance);
 			
+			testCercaUtentiConPwdMinoreDiOttoCaratteri(utenteServiceInstance);
+			
 		} catch (Throwable e) {
 			e.printStackTrace();
 		} finally {
@@ -221,7 +223,12 @@ public class ManyToManyTest {
 			throw new Exception("Lista utenti vuota");
 		
 		System.out.println(utenteServiceInstance.countQuantiUtentiSonoAdmin());
+	}
+	
+	
+	private static void testCercaUtentiConPwdMinoreDiOttoCaratteri(UtenteService utenteServiceInstance) throws Exception{
+		List<Utente> result = utenteServiceInstance.cercaUtentiConPwdMinoreDiOttoCaratteri();
 		
-		
+		System.out.println(result.size());
 	}
 }
