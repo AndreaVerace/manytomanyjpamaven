@@ -51,7 +51,11 @@ public class ManyToManyTest {
 			
 			//testCountQuantiUtentiSonoAdmin(utenteServiceInstance);
 			
-			testCercaUtentiConPwdMinoreDiOttoCaratteri(utenteServiceInstance);
+			//testCercaUtentiConPwdMinoreDiOttoCaratteri(utenteServiceInstance);
+			
+			//testCercaDescrizioneQuantiRuoliConUtentiAssociati(ruoloServiceInstance);
+			
+			testCercaSeAlmenoUnAdminDisabilitato(utenteServiceInstance);
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -231,4 +235,22 @@ public class ManyToManyTest {
 		
 		System.out.println(result.size());
 	}
+	
+	private static void testCercaDescrizioneQuantiRuoliConUtentiAssociati(RuoloService ruoloServiceInstance) throws Exception{
+		
+		List<String> result = ruoloServiceInstance.cercaDescrizioneQuantiRuoliConUtentiAssociati();
+		
+		System.out.println(result.size());
+		
+	}
+	
+	
+	private static void testCercaSeAlmenoUnAdminDisabilitato(UtenteService utenteServiceInstance) throws Exception{
+		
+		if(utenteServiceInstance.cercaSeAlmenoUnAdminDisabilitato())
+			throw new Exception("Nessun Admin disabilitato trovato");
+		else 
+			System.out.println("Admin disabilitato trovato");
+	}
+	
 }

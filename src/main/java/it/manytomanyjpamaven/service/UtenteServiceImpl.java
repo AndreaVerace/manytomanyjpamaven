@@ -311,7 +311,7 @@ public class UtenteServiceImpl implements UtenteService {
 			utenteDAO.setEntityManager(entityManager);
 
 			// eseguo quello che realmente devo fare
-			return utenteDAO.cercaSeAlmenoUnAdminDisabilitato();
+			return utenteDAO.cercaSeAlmenoUnAdminDisabilitato().size() == 0 ;
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -18,6 +18,6 @@ public interface UtenteDAO extends IBaseDAO<Utente> {
 	
 	public List<Utente> cercaUtentiConPwdMinoreDiOttoCaratteri() throws Exception;
 	
-	public boolean cercaSeAlmenoUnAdminDisabilitato() throws Exception;
+	public List<Utente> cercaSeAlmenoUnAdminDisabilitato() throws Exception;
 
 }

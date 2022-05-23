@@ -3,6 +3,7 @@ package it.manytomanyjpamaven.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import it.manytomanyjpamaven.model.Ruolo;
@@ -66,8 +67,8 @@ public class RuoloDAOImpl implements RuoloDAO {
 
 	@Override
 	public List<String> cercaDescrizioneQuantiRuoliConUtentiAssociati() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Query query =  entityManager.createNativeQuery("SELECT distinct r.descrizione FROM ruolo r inner join utente_ruolo ur on r.id=ur.ruolo_id inner join utente u on ur.utente_id=u.id");
+		return query.getResultList();
 	}
 
 }

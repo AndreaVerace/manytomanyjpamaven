@@ -84,14 +84,15 @@ public class UtenteDAOImpl implements UtenteDAO {
 
 	@Override
 	public List<Utente> cercaUtentiConPwdMinoreDiOttoCaratteri() throws Exception {
-		return entityManager.createQuery("from Utente where LENGTH(password) <8 ", Utente.class).getResultList();
+		return entityManager.createQuery("from Utente where LENGTH(password) < 8 ", Utente.class).getResultList();
 		
 	}
 
 	@Override
-	public boolean cercaSeAlmenoUnAdminDisabilitato() throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public List<Utente> cercaSeAlmenoUnAdminDisabilitato() throws Exception {
+		TypedQuery<Utente> query = entityManager.createQuery("select u from Utente join u.ruoli r where r.codice like 'ROLE_ADMIN' and u.stato = 'DISABILITATO'", Utente.class);
+		return query.getResultList();
+		
 	}
 
 }
